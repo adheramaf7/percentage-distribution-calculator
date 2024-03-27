@@ -98,9 +98,9 @@ function App() {
       <div className="h-screen bg-gray-100 flex flex-col justify-center items-center">
          <div className="bg-white max-w-lg w-full py-4 px-6 shadow-md rounded-md space-y-4">
             <section className="text-center space-y-1">
-               <h1 className="font-semibold text-lg">Kalkulator Pembagian Nilai</h1>
+               <h1 className="font-semibold text-lg">Value Distribution Calculator</h1>
                <p className="text-center text-sm text-gray-500">
-                  Hitung pembagian nilai berdasarkan prosentase.
+                  Calculate distributions of a value.
                </p>
             </section>
             <section className="flex flex-row gap-x-2">
@@ -110,7 +110,7 @@ function App() {
                   value={state.totalValue}
                   onChange={handleTotalValueChange}
                   className="flex-1 ring-1 border-0  ring-gray-300 focus:ring-2 focus:ring-blue-500 p-2 rounded-md placeholder:text-gray-400"
-                  placeholder="Masukkan jumlah nilai yang akan dibagi"
+                  placeholder="Enter some value here..."
                />
                <button
                   type="button"
@@ -122,12 +122,12 @@ function App() {
             {state.totalValue && (
                <section className="flex flex-col gap-y-3">
                   <div className="flex flex-row justify-between">
-                     <p className="font-semibold">Daftar Pembagian</p>
+                     <p className="font-semibold">Distributions</p>
                      <button
                         className="text-sm text-blue-500 font-semibold"
                         type="button"
                         onClick={handleAddClick}>
-                        (+) Pembagian
+                        (+) Distribution
                      </button>
                   </div>
                   <ul className="flex flex-col gap-y-2">
@@ -145,7 +145,7 @@ function App() {
                                        handleDistributionChange(index, e.target.value)
                                     }
                                     className="block w-full ring-1 border-0 text-sm ring-gray-300 focus:ring-2 focus:ring-blue-500 p-2 rounded-md placeholder:text-gray-400"
-                                    placeholder="Prosentase ke-1"
+                                    placeholder={`Percentage #${index + 1}`}
                                  />
                                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-7">
                                     <span className="text-gray-500 sm:text-sm">%</span>
@@ -173,7 +173,7 @@ function App() {
                         'font-semibold ' +
                         (totalDistribution > 100 ? 'text-red-500' : 'text-gray-600')
                      }>
-                     Total Prosentase Distribusi: {totalDistribution}%
+                     Total Distribution Percentage: {totalDistribution}%
                   </p>
                </section>
             )}
